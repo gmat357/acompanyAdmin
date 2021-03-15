@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+@import "variable";
+@import "font";
+
+body,
+html {
+  background-color: #e9e9e9;
+}
+
+.content_container {
+  width: $layout_width;
+  height: 900px;
+  .menu_container {
+    float: left;
+    width: 305px;
+    height: 100%;
+    background-color: #373d44;
+    ul {
+      width: 100%;
+      margin: 100px -10px;
+      text-align: left;
+      li {
+        padding: 10px 0;
+        margin: 20px 60px;
+        border-bottom: 1px solid #afb1b4;
+      }
+    }
+  }
+}

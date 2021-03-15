@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/nav.css">
+    <link rel="stylesheet" href="../public/css/link.css">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <title>어컴퍼니 관리자</title>
+</head>
+<body>
+    <%-header%>
+    <div class="content_container">
+        <%-nav%>
+        <div class="content_box">
+            <img src="../public/img/link/title.png" alt="타이틀이미지">
+            <p>예 : http:// 사용하실 링크</p>
+            <table class="table_box list_container">
+                <thead>
+                    <tr>
+                        <td>이름</td>
+                        <td>링크</td>
+                        <td>기타</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form action="/link/naver" method="POST">
+                            <td>네이버톡톡</td>
+                            <td><input type="text" name="url" value="<%-naver%>"></td>
+                            <td><input type="submit" value="수정"></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <form action="/link/kakao" method="POST">
+                            <td>카카오톡</td>
+                            <td><input type="text" name="url" value="<%-kakao%>"></td>
+                            <td><input type="submit" value="수정"></td>
+                        </form>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/nav.css">
+    <link rel="stylesheet" href="../public/css/slide.css">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <title>어컴퍼니 관리자</title>
+</head>
+<body>
+    <%-header%>
+    <div class="content_container">
+        <%-nav%>
+        <div class="content_box">
+            <img src="../public/img/slide/title.png" alt="타이틀이미지">
+            <table class="table_box">
+                <thead>
+                    <tr>
+                        <td>배너 사이즈</td>
+                        <td colspan="4">배너 크기는 1920 * 448 입니다.(사이즈 초과시 배너 넘침현상 생깁니다.)</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">배너이미지</td>
+                        <td>순서</td>
+                        <td>이미지</td>
+                        <td>배너등록</td>
+                        <td>기타</td>
+                    </tr>
+                    <tr>
+                        <form action="/slide/1" enctype="multipart/form-data" method="post">
+                            <td>1</td>
+                            <td><img src="<%-slide1%>" alt="빈슬라이드"></td>
+                            <td><input type="file" name="file" accept ='image/jpg, image/png, image/jpeg'></td>
+                            <td><input type="submit" value="변경"></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <form action="/slide/2" enctype="multipart/form-data" method="post">
+                            <td>2</td>
+                            <td><img src="<%-slide2%>" alt="빈슬라이드"></td>
+                            <td><input type="file" name="file" accept ='image/jpg, image/png, image/jpeg'></td>
+                            <td><input type="submit" value="변경"></td>
+                        </form>
+                    </tr>
+                    <tr>
+                        <form action="/slide/3" enctype="multipart/form-data" method="post">
+                            <td>3</td>
+                            <td><img src="<%-slide3%>" alt="빈슬라이드"></td>
+                            <td><input type="file" name="file" accept ='image/jpg, image/png, image/jpeg'></td>
+                            <td><input type="submit" value="변경"></td>
+                        </form>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

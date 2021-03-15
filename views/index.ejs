@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/header.css">
+    <link rel="stylesheet" href="../public/css/nav.css">
+    <link rel="stylesheet" href="../public/css/main.css">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <title>어컴퍼니 관리자</title>
+</head>
+<body>
+    <%-header%>
+    <div class="content_container">
+        <%-nav%>
+        <div class="content_box">
+            <img src="../public/img/main/title.png" alt="타이틀이미지">
+            <table class="table_box list_container">
+                <thead>
+                    <tr>
+                        <td>순번</td>
+                        <td>성함</td>
+                        <td>접수일</td>
+                        <td>카테고리</td>
+                        <td>문의 내역</td>
+                        <td>상태</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+                <script src="../public/js/consulting/browser.js"></script>
+                <script src="../public/js/consulting/index.js" type="text/babel" data-presets="es2015,stage-2"></script>
+            </table>
+            <div class="paging_box">
+                <span class="prev"><img src="../public/img/main/paging_left.png" alt="왼쪽 화살표"></span>
+                <span class="next"><img src="../public/img/main/paging_right.png" alt="오른쪽 화살표"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="update_box">
+        <div class="update_form">
+            <form action="" method="post" class="update_action">
+        <h4>상담신청 관리</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <td>신청구분</td>
+                        <td>
+                            <input type="text" class="category" readonly/>
+                        </td>
+                        <td>이름</td>
+                        <td><input type="text" class="name" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>전화번호</td>
+                        <td colspan="3">
+                            <input type="text" name="sellphone" class= "phone"  readonly/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>문의 내용</td>
+                        <td colspan="3">
+                            <textarea class="text_form" readonly>
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>문의 일자</td>
+                        <td>
+                            <input type="text" class="assignment_date" />
+                        </td>
+                        <td>상태</td>
+                        <td>
+                            <select name="use" class="use">
+                                <option value="미완료">미완료</option>
+                                <option value="완료">완료</option>
+                            </select>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4"><input type="button" class="form_close_btn" value="닫기"><input type="submit" value="수정" class="update_btn"></td>
+                    </tr>
+                </tbody>
+        </table>
+    </form>
+        </div>
+    </div>
+</body>
+</html>
