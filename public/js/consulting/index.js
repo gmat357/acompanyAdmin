@@ -1,8 +1,8 @@
 var dataGetUrl = "/consulting/getList"; // 데이터를 가져올 링크
 var urlType = "post"; // 데이터 방식 GET/POST
 var dataType = "json"; // 데이터 형식
-var maxTableColspan = 6; // 테이블 열의 갯수
-var maxListLength = 15; // 보여주는 리스트 갯수
+var maxTableColspan = 7; // 테이블 열의 갯수
+var maxListLength = 13; // 보여주는 리스트 갯수
 var pagingBtnLength = 5; // 페이징 버튼 갯수
 var btnClickColor = "#545454"; // 페이징 버튼 클릭시 색상
 var btnColor = "white";
@@ -12,6 +12,10 @@ var next = $(".next"); // 다음 버튼 엘리먼트
 var listContainer = $(".list_container"); // 데이터를 넣을 컨테이너 엘리먼트
 
 listContainer.children("tbody").addClass("list_space");
+
+
+
+
 
 function failedGetData(){
     return "<tr><td colspan="+maxTableColspan+">게시물 없음</td></tr>";
@@ -25,6 +29,7 @@ function successGetData(data){
             useImg = "../public/img/main/true.png";
         dataList += `
         <tr>
+        <td><input type="checkbox" value="${data[i].No}" class="check_list"></td>
         <td>${data[i].No}</td>
         <td>${data[i].name}</td>
         <td>${data[i].insert_date}</td>
@@ -61,6 +66,7 @@ function resetData(data,page){
         }else{
             dataList += `
             <tr>
+            <td><input type="checkbox" value="${data[i].No}" class="check_list"></td>
             <td>${data[i].No}</td>
             <td>${data[i].name}</td>
             <td>${data[i].insert_date}</td>
@@ -133,7 +139,7 @@ function getConsulting(value){
             nameForm.attr("value",data[0].name);
             phoneForm.attr("value",data[0].phone);
             dateForm.attr("value",data[0].insert_date);
-            textForm.text(data[0].category);
+            textForm.text(data[0].text);
             updateAction.attr("action","/consultingUpdate/"+data[0].No);
 
             for(var i = 0; i < useForm.length; i++){
@@ -144,6 +150,45 @@ function getConsulting(value){
         }
     })
 }
+
+
+    //  delete 버튼 클릭함수
+    function delete_btn_click(){
+        //  삭제시 json파일 전송 경로
+        const ajax_delete_url = "/consulting_delete_List";
+        //  데이터 타입
+        const ajax_delete_datatype = "json";
+        //  url방식
+        const ajax_delete_type = "post";
+
+
+        let IsBull = confirm("정말로 삭제하시겠습니까?");
+        if(IsBull){
+
+            let check_list = $(".check_list");
+            let array_result = new Array();
+            let check_list_cnt = 1;
+            for(let i = 0; i < check_list.length; i++){
+                if(check_list.eq(i).is(":checked")){
+                    let check_list_checked = {id:check_list_cnt,value:Number(check_list.eq(i).attr("value"))};
+                    check_list_cnt++;
+                    array_result.push(check_list_checked);
+                }
+            }
+            
+            $.ajax({
+                url:ajax_delete_url,
+                dataType:ajax_delete_datatype,
+                type:ajax_delete_type,
+                data:array_result
+            });
+            alert("삭제되었습니다.");
+            location.reload();
+        }else{
+            alert("취소되었습니다.");
+        }
+
+    }
 
 $(function(){
     var list_space = $(".list_space");
@@ -187,6 +232,23 @@ $(function(){
             updateFormClose.on("click",function(){
                 updateForm.fadeOut();
             });
+
+            //  all_check 버튼
+            const all_check = $('.all_check');
+
+            all_check.on("click", function(){
+                let check_list  = $('.check_list');
+                if(all_check.is(":checked")){
+                    check_list.prop('checked',true);
+                }else if(!all_check.is(":checked")){
+                    check_list.prop('checked',false);
+                }
+            });
+
+                    //  delete 버튼
+        const list_delete_btn = $('.delete_btn');
+
+            list_delete_btn.on("click",delete_btn_click);
 
         },error:function(){
             console.log("Failed to fetch Data");

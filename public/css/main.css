@@ -61,7 +61,7 @@ html {
 }
 
 .content_box img {
-  margin: 50px 0;
+  margin: 50px auto 50px 0;
 }
 
 .content_box .table_box {
@@ -69,6 +69,12 @@ html {
   margin: 0 auto;
   text-align: center;
   font-family: "S-CoreDream-3Light", sans-serif;
+}
+
+.content_box .table_box input[type="checkbox"] {
+  margin: 10px;
+  width: 15px;
+  height: 15px;
 }
 
 .content_box .table_box thead tr {
@@ -89,12 +95,30 @@ html {
   margin: 0;
 }
 
-.content_box .table_box tbody tr td:nth-of-type(5) {
+.content_box .table_box tbody tr td:nth-of-type(6) {
   width: 55%;
 }
 
-.content_box .table_box tbody tr td:nth-of-type(5) span {
+.content_box .table_box tbody tr td:nth-of-type(6) span {
   cursor: pointer;
+}
+
+.content_box .delete_btn {
+  float: right;
+  background-color: #888888;
+  color: white;
+  font-family: "S-CoreDream-3Light", sans-serif;
+  font-size: 12px;
+  padding: 10px 20px;
+  margin: 110px 163px 0 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content_box .delete_btn:hover {
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  background-color: #444444;
 }
 
 .content_box .paging_box {

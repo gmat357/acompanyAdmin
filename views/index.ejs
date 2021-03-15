@@ -15,10 +15,12 @@
     <div class="content_container">
         <%-nav%>
         <div class="content_box">
-            <img src="../public/img/main/title.png" alt="타이틀이미지">
+            <img src="../public/img/main/title.png" alt="타이틀이미지" style="margin-left:200px;">
+            <span class="delete_btn">삭제</span>
             <table class="table_box list_container">
                 <thead>
                     <tr>
+                        <td><input type="checkbox" class="all_check"></td>
                         <td>순번</td>
                         <td>성함</td>
                         <td>접수일</td>
@@ -27,12 +29,14 @@
                         <td>상태</td>
                     </tr>
                 </thead>
-                <tbody>
-                    
-                </tbody>
+                <form method="post" action="">
+                    <tbody>
+                    </tbody>
+                </form>
                 <script src="../public/js/consulting/browser.js"></script>
                 <script src="../public/js/consulting/index.js" type="text/babel" data-presets="es2015,stage-2"></script>
             </table>
+
             <div class="paging_box">
                 <span class="prev"><img src="../public/img/main/paging_left.png" alt="왼쪽 화살표"></span>
                 <span class="next"><img src="../public/img/main/paging_right.png" alt="오른쪽 화살표"></span>

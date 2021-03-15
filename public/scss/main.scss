@@ -19,13 +19,18 @@ html {
   float: right;
   text-align: center;
   img {
-    margin: 50px 0;
+    margin: 50px auto 50px 0 ;
   }
   .table_box {
     width: 80%;
     margin: 0 auto;
     text-align: center;
     font-family: "S-CoreDream-3Light", sans-serif;
+    input[type="checkbox"]{
+      margin:10px;
+      width:15px;
+      height:15px;
+    }
     thead {
       tr {
         background-color: #4298f3;
@@ -44,14 +49,30 @@ html {
           img {
             margin: 0;
           }
+
         }
-        td:nth-of-type(5) {
+        td:nth-of-type(6) {
           width: 55%;
           span {
             cursor: pointer;
           }
         }
       }
+    }
+  }
+  .delete_btn{
+    float:right;
+    background-color:#888888;
+    color:white;
+    font-family: "S-CoreDream-3Light", sans-serif;
+    font-size:12px;
+    padding:10px 20px;
+    margin:110px 163px 0 0;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover{
+      transition-duration: 0.5s;
+      background-color:#444444;
     }
   }
   .paging_box {

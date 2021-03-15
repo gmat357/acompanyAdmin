@@ -31,6 +31,7 @@ app.use('/',indexRouter);
 app.post('/consulting/getList',indexRouter);
 app.post('/consulting/:page',indexRouter);
 app.post('/consultingUpdate/:page',indexRouter);
+app.post('/consulting_delete_List',indexRouter);
 app.get('/login', loginRouter);
 app.post('/loginAction', authRouter);
 

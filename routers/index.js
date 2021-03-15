@@ -50,6 +50,20 @@ router.post('/consultingUpdate/:page',(req,res)=>{
         if(err) throw err;
         res.redirect('/');
     });
-})
+});
+
+router.post('/consulting_delete_List',(req,res)=>{
+    console.log("접속");
+    let jsonData = req.body.undefined;
+    if(Array.isArray(jsonData)){
+        for(let i = 0; i < jsonData.length; i++){
+            db.query('delete from `consulting` where No = ?',jsonData[i]);
+        }
+    }else{
+        db.query('delete from `consulting` where No = ?', jsonData);
+    }
+    
+    res.redirect('/adminlist');
+});
 
 module.exports = router;
