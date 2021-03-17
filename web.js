@@ -48,11 +48,11 @@ app.get('/join',joinRouter);
 app.post('/joinAction',joinRouter);
 app.listen(port,()=>{console.log(`${port} 서버 오픈`)});
 
-process.on('uncaughtException', function (err) {
-    console.log('Caught exception: ' + err);
-  });
+// process.on('uncaughtException', function (err) {
+//     console.log('Caught exception: ' + err);
+//   });
   
-  setTimeout(function () {
-    console.log('This will still run.');
-  }, 500);
-  console.log('This will not run.');
+//   setTimeout(function () {
+//     console.log('This will still run.');
+//   }, 500);
+//   console.log('This will not run.');
