@@ -1,11 +1,11 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4000;
 var path = require('path');
 const flash = require('connect-flash');
 const passport = require('passport');
 const session = require('express-session');
-
+var db = require('./mysql/index').mysql();
 
 var indexRouter = require('./routers/index');
 var loginRouter = require('./routers/login');
@@ -46,6 +46,11 @@ app.post('/price/:page',priceRouter);
 
 app.get('/join',joinRouter);
 app.post('/joinAction',joinRouter);
+
+setInterval(()=>{
+    db;
+},80000);
+
 app.listen(port,()=>{console.log(`${port} 서버 오픈`)});
 
 // process.on('uncaughtException', function (err) {
@@ -55,4 +60,4 @@ app.listen(port,()=>{console.log(`${port} 서버 오픈`)});
 //   setTimeout(function () {
 //     console.log('This will still run.');
 //   }, 500);
-//   console.log('This will not run.');
+//   console.log('This will not run.');;
